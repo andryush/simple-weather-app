@@ -5,14 +5,17 @@ const inputSearch = document.querySelector('.i-search');
 const searchBtn = document.querySelector('.i-button');
 const errorField = document.querySelector('.error-field');
 const container = document.querySelector('.d-flex-cards');
+const spinner = document.querySelector('.spinner');
 
 const getData = () => {
+
     let inputValue = inputSearch.value.toLowerCase();
     const url = apiRequest.replace("mycity", inputValue).replace("mykey", apiKey);
 
     if(inputValue.length === 0) {
         errorField.textContent = 'Enter city name';
     } else  {
+        spinner.removeAttribute('hidden');
         startFetch();
     }
 
@@ -22,13 +25,16 @@ const getData = () => {
             return resolve.json();
         })
         .catch((err) => {
+            spinner.setAttribute('hidden', '');
             console.log('ERROR', err);
             errorField.textContent = err;
         })
         .then((data) => {
             if(data.cod === '404') {
+                spinner.setAttribute('hidden', '');
                 errorField.textContent = 'City not found :(';
             } else {
+                spinner.setAttribute('hidden', '');
                 errorField.textContent = '';
 
                 let temp = Math.round(data.main.temp - 273.15);
