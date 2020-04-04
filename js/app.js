@@ -9,14 +9,20 @@ const container = document.querySelector('.d-flex-cards');
 const getData = () => {
     let inputValue = inputSearch.value.toLowerCase();
     const url = apiRequest.replace("mycity", inputValue).replace("mykey", apiKey);
-    console.log(url);
 
-    fetch(url)
+    if(inputValue.length === 0) {
+        errorField.textContent = 'Enter city name';
+    } else  {
+        startFetch();
+    }
+
+    function startFetch() {
+        fetch(url)
         .then((resolve) => {
             return resolve.json();
         })
         .catch((err) => {
-            console.log('ERRROOOR', err);
+            console.log('ERROR', err);
             errorField.textContent = err;
         })
         .then((data) => {
@@ -75,7 +81,7 @@ const getData = () => {
                 inputSearch.value = '';
             }
         })
-
+    }
 }
 
 
