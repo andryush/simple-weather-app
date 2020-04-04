@@ -1,5 +1,5 @@
 const apiKey = "8dd754c90efa043abfd104f712f84448";
-const apiRequest = "http://api.openweathermap.org/data/2.5/weather?q=mycity&appid=mykey"
+const apiRequest = "https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?q=mycity&appid=mykey"
 
 const inputSearch = document.querySelector('.i-search');
 const searchBtn = document.querySelector('.i-button');
