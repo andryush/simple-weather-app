@@ -11,7 +11,6 @@ const getData = () => {
 
     let inputValue = inputSearch.value.toLowerCase();
     const url = apiRequest.replace("mycity", inputValue).replace("mykey", apiKey);
-
     if(inputValue.length === 0) {
         errorField.textContent = 'Enter city name';
     } else  {
@@ -40,7 +39,8 @@ const getData = () => {
                 let temp = Math.round(data.main.temp - 273.15);
                 let sign = temp > 0 ? '+' : '';
                 let description = data.weather[0].description.charAt(0).toUpperCase() + data.weather[0].description.slice(1);
-                let imgURL = `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`
+                let imgURL = `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
+                let timeNow = data.dt;
                 let sunriseTime = data.sys.sunrise;
                 let sunsetTime = data.sys.sunset;
                 let offset = data.timezone / 3600;
@@ -65,12 +65,15 @@ const getData = () => {
                     return time;
                 }
 
+
                 let template = `
                 <div class="d-flex-card">
                     <h2>${data.name}</h2>
                     <h2 class="temp">${sign}${temp}°</h2>
                     <img src=${imgURL} alt="">
                     <p>${description}</p>
+                    <hr>
+                    <p>Time now: <span>${getDate(timeNow, offset)}</span></p>
                     <p>Sunrise: <span>${getDate(sunriseTime, offset)}</span></p>
                     <p>Sunset: <span>${getDate(sunsetTime, offset)}</span></p>
                     <input class="i-button-del" type="button" value="Delete">
