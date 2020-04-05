@@ -16,8 +16,12 @@ h2 {
     text-align: center;
 }
 
-.title {
+/* .title {
     text-align: center;
+} */
+header {
+    display: flex;
+    justify-content: center;
 }
 
 .error-field {
@@ -39,9 +43,12 @@ h2 {
     text-align: center;
     font-size: 14px;
     width: 150px;
-    height: 30px;
     border: 3px solid #47A04A;
     border-right: 0px;
+    padding: 10px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
 
 .i-search:focus {
@@ -52,11 +59,15 @@ h2 {
     width: 70px;
     background-color: #47A04A;
     color: white;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 700;
     border: 3px solid #47A04A;
+    border-radius: 0;
     outline: #458f47;
     cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
 
 .i-button:hover {
@@ -68,6 +79,7 @@ h2 {
     height: 35px;
     background-color: red;
     border: 3px solid red;
+    border-radius: 0;
     outline: red;
     color: white;
     font-size: 12px;
@@ -75,6 +87,9 @@ h2 {
     cursor: pointer;
     margin-top: 20px;
     margin-bottom: 10px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
 
 .i-button-del:hover {
