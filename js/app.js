@@ -71,7 +71,7 @@ const getData = () => {
                     <h2>${data.name}</h2>
                     <h2 class="temp">${sign}${temp}°</h2>
                     <img src=${imgURL} alt="">
-                    <p>${description}</p>
+                    <p class="description">${description}</p>
                     <hr>
                     <p>Time now: <span>${getDate(timeNow, offset)}</span></p>
                     <p>Sunrise: <span>${getDate(sunriseTime, offset)}</span></p>
