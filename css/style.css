@@ -65,6 +65,7 @@ header {
     border-radius: 0;
     outline: #458f47;
     cursor: pointer;
+    text-align: center;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
